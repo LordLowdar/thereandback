@@ -15,18 +15,29 @@ if (isNaN(buttonAmount)) {
     const checkListItem = document.createElement('div')
     const checkSaveButton = document.createElement('button')
     checkSaveButton.id = 'checkListButton' + [i + 1]
+    checkSaveButton.classList.add('toDoButton')
+    checkSaveButton.innerHTML = 'Save'
     // add a class for styling
     checkListItem.classList.add('checkListItem')
     checkListItem.id = 'checkListItem' + [i + 1]
-    // create input
-    checkListInput = document.createElement('input')
+    // create input for toDo items
+    const checkListInput = document.createElement('input')
     checkListInput.classList.add('toDoInput')
     checkListInput.id = 'toDoInput' + [i + 1]
     checkListInput.placeholder = "Enter your to-do items here!"
     checkListInput.value = localStorage.getItem('toDoInput' + [i + 1])
     checkListInput.classList.add('savedInput')
+    // create input for date
+    const checkListDate = document.createElement('input')
+    checkListDate.type = 'date'
+    checkListDate.classList.add('toDoDate')
+    checkListDate.id = 'toDoDate' + [i + 1]
+    // checkListDate.placeholder = ""
+    checkListDate.value = localStorage.getItem('toDoDate' + [i + 1])
+    checkListDate.classList.add('savedDate')
     // append Items
     checklistContainer.append(checkListItem)
+    checkListItem.append(checkListDate)
     checkListItem.append(checkListInput)
     checkListItem.append(checkSaveButton)
  }
@@ -46,10 +57,14 @@ checklistContainer.addEventListener('click', (event) => {
     }
     // else save/checkmark button
     else {        
-        var inputVar = document.getElementById(targetId).previousSibling
-        localStorage.setItem(inputVar.id,inputVar.value)
-        inputVar.classList.add('savedInput')
-        // localStorage.setItem(toDoVar.id, toDoVal)
+        var toDoVar = document.getElementById(targetId).previousSibling
+        console.log(toDoVar)
+        var dateVar = toDoVar.previousSibling
+        localStorage.setItem(toDoVar.id,toDoVar.value)
+        localStorage.setItem(dateVar.id,dateVar.value)
+        toDoVar.classList.add('savedInput')
+        dateVar.classList.add('savedInput')
+        
     }
 })
 // declare add new item function
@@ -68,7 +83,14 @@ function addNewListItem() {
     checkListInput.classList.add('toDoInput')
     checkListInput.id = 'toDoInput' + buttonAmount
     checkListInput.placeholder = "Enter your to-do items here!"
+     // create input for date
+     const checkListDate = document.createElement('input')
+     checkListDate.type = 'date'
+     checkListDate.classList.add('toDoDate')
+     checkListDate.id = 'toDoDate' + buttonAmount
+
     checklistContainer.append(checkListItem)
+    checkListItem.append(checkListDate)
     checkListItem.append(checkListInput)
     checkListItem.append(checkSaveButton)
 }
