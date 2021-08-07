@@ -3,6 +3,7 @@
     flex-direction: row-reverse;
     overflow: auto;
     white-space:nowrap;
+    align-items: center;
 }
 .toDoDate{
     height: 30%;
@@ -11,12 +12,43 @@
  height: 50%;
 }
 .toDoButton{
-    height: 20%;
+  width: 10%;
+  height: 20%;
+}
+#saveButton{
+  height: 100px;
+  width: 50px;
+  margin-right: auto;
+  flex-shrink: 0;
+}
+#addListItem{
+  height: 100px;
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.past{
+  order: -1;
+}
+.present{
+order: 0;
+}
+.future{
+order: 1;
+}
+.checked{
+  order: +2
+}
+.checked > input{
+  text-decoration-line: line-through;
+}
+.unchecked{
+  order: 0;
 }
 
 .checkListItem{
     height: 90px;
-    width: 100px;
+    width: 145px;
      display: flex;
      flex-direction: column;
      justify-content: space-evenly;
