@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel="stylesheet" href="modal.css" />
     <link rel="stylesheet" href="displayshellstyle.css" />
 
     <title>There and back again shell display</title>
@@ -52,6 +52,60 @@
         <h3>window-e</h3>
       </div>
     </main>
+    <button id="modalBtn" class="infoPull">Set off!</button>
+
+    <div id="infoModal" class="modal">
+      <div class="modalContent">
+        <div class="modalHeader">
+          <span id="closeBtn">&times;</span>
+          <h2>Where are we off to?</h2>
+        </div>
+        <div class="modalBody">
+          <form id="info">
+            <label for="startingPoint">Where are you Starting From?</label
+            ><br />
+            <input
+              type="text"
+              id="startingPoint"
+              name="startingPoint"
+              value="Bag End"
+            /><br />
+            <label for="endPoint">Youll Be Headed Where?</label><br />
+            <input
+              type="text"
+              id="endingPoint"
+              name="endingPoint"
+              value="Mordor"
+            /><br />
+            <label for="stops">How Many Stops Are you Considering?</label>
+            <select id="stops" name="stops">
+              <option value="0">Not Sure</option>
+              <option value="1">0</option>
+              <option value="2">3</option>
+              <option value="3">5</option>
+              <option value="4">7</option></select
+            ><br />
+            <label for="startingDate">Leaving On:</label>
+            <input type="date" id="startingDate" name="startingDate" />
+            <label for="leaveDate">Heading Home On:</label>
+            <input type="date" id="departingDate" name="departingDate" /><br />
+            <label for="budget">How Much Do You Need to Fund This?</label><br />
+            <input type="text" id="budget" name="budget" value="$0" /><br />
+            <button type="submit" class="submitModal" id="submit">
+              The First Step
+            </button>
+          </form>
+        </div>
+        <div class="modalFooter">
+          <h3>Hobbit footer</h3>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="currentWeather"></div>
+    </div>
+
+    <script src="modal.js"></script>
   </body>
   <script type="text/javascript" src="displayshellscript.js"></script>
 </html>
