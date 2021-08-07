@@ -1,0 +1,1 @@
+So this branch should be mostly for designing the shell of the site creating a specific look and flow to the page starting from a mobile first perspective and adjusting for larger pages.
