@@ -1,82 +1,82 @@
-#taskListContainer{
-    display: flex;
-    flex-direction: row-reverse;
-    overflow: auto;
-    white-space:nowrap;
-    align-items: center;
+#taskListContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  overflow: auto;
+  white-space: nowrap;
+  align-items: center;
 }
-.toDoDate{
-    height: 30%;
+.toDoDate {
+  height: 30%;
 }
-.toDoInput{
- height: 50%;
+.toDoInput {
+  height: 50%;
 }
-.toDoButton{
+.toDoButton {
   width: 10%;
   height: 20%;
 }
-#saveButton{
+#saveButton {
   height: 100px;
   width: 50px;
   margin-right: auto;
   flex-shrink: 0;
 }
-#addListItem{
+#addListItem {
   height: 100px;
   width: 50px;
   flex-shrink: 0;
 }
 
-.past{
+.past {
   order: -1;
 }
-.present{
-order: 0;
+.present {
+  order: 0;
 }
-.future{
-order: 1;
+.future {
+  order: 1;
 }
-.checked{
-  order: +2
+.checked {
+  order: +2;
 }
-.checked > input{
+.checked > input {
   text-decoration-line: line-through;
 }
-.unchecked{
+.unchecked {
   order: 0;
 }
 
-.checkListItem{
-    height: 90px;
-    width: 145px;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-evenly;
-    padding: 2px;
-    margin: 2px;
-    border: 4px solid rgb(255, 176, 176);
-    border-radius: 10px;
+.checkListItem {
+  height: 90px;
+  width: 145px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 2px;
+  margin: 2px;
+  border: 4px solid rgb(255, 176, 176);
+  border-radius: 10px;
 }
 /* scrollbar styling */
 /* scrollbar  */
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #ffdddd;
-    border-radius: 10px;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(255, 176, 176);
-    border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(255, 91, 91);
-  }
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffdddd;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 176, 176);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 91, 91);
+}
