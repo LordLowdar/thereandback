@@ -13,7 +13,7 @@ function toggleNav()
   if(toggleNavStatus === false)
   {
     getNavBar.style.visibility  = "visible";
-    getNavBar.style.width = "300px";
+    getNavBar.style.width = "250px";
     getNavBar.style.opacity =  "1";  
     toggleNavStatus = true;
   }

@@ -8,6 +8,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="modal.css" />
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="displayshellstylefullpage.css" />
+    <link rel= "stylesheet" href="displayshellstylehalfpage.css"/>
+>>>>>>> eaf49126100710d7eac64229490d60d063a67315
     <link rel="stylesheet" href="toDoStyle.css">
     <link rel="stylesheet" href="displayshellstylefullpage.css" />
     <title>There and back again shell display</title>
@@ -45,19 +50,37 @@
       <!---->
       
       <main id="features-display-box">
-        
-        <div id="window-a" class="displayWindow">
-          <h3>window-a</h3>
-          <div class= "description-button">
-            <span class= "material-icons" onmouseover="showAboutUs()" onmouseout="closeInfo()">description</span>
-          </div>
+     
+        <div id="window-a" class="displayWindow" >
         </div>
         
-        <div id="window-b" class="displayWindow" >
-          <h3>window-b</h3>
+        <div id="window-b" class="displayWindow">
+          <div class="startingCard">
+            <div class="startingWeather">
+              <h4 class="startingPointCity"></h4>
+              <div class="startingPointTemp"></div>
+              <img src="" alt="" class="startingIcon" />
+              <div class="startingPointDesc"></div>
+              <div class="startingPointHumidity"></div>
+              <div class="startingPointWind"></div>
+            </div>
+            </div>
+            
+            <div class="endingCard">
+              <div class="endingWeather">
+                <h4 class="endingPointCity"></h4>
+                <div class="endingPointTemp"></div>
+                <img src="" alt="" class="endingIcon" />
+                <div class="endingPointDesc"></div>
+                <div class="endingPointHumidity"></div>
+                <div class="endingPointWind"></div>
+              </div>
+              </div> 
         </div>
+        
         
         <div id="window-c" class="displayWindow">
+          
           <button id="modalBtn" class="infoPull">Set off!</button>
           <div id="infoModal" class="modal">
             <div class="modalContent">
@@ -151,9 +174,9 @@
 
 
 
-<script src= "toDoScript.js"></script>
+
 <script src="modal.js"></script>
 <script src="displayshellscript.js"></script>
-
+<script src= "toDoScript.js"></script>
 </body>
 </html>
