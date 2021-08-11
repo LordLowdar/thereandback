@@ -2,6 +2,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .infoPull {
@@ -69,6 +73,14 @@ body {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.startingCard,
+.endingCard {
+  background-color: darkolivegreen;
+  margin: 5%;
+  border-radius: 15px;
+  padding: 1em;
 }
 
 @keyframes modalOpen {

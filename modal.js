@@ -55,7 +55,7 @@ function storeDates() {
 }
 
 //Weather request of current values of starting point
-function getApi() {
+function startingPointWeather() {
   var url = `https://api.openweathermap.org/data/2.5/weather?q=${startingPoint.value}&units=imperial&appid=d60338ffc6ff91a104e3347936e9f739`;
 
   fetch(url)
@@ -64,12 +64,66 @@ function getApi() {
     })
     .then(function (data) {
       console.log(data);
+      var startName = document.createElement("h4");
+      startName.textContent = data.name;
+      document.querySelector(".startingPointCity").appendChild(startName);
+      var startTemp = document.createElement("p");
+      startTemp.textContent = data.main.temp + "°";
+      document.querySelector(".startingPointTemp").appendChild(startTemp);
+      var startDescription = document.createElement("p");
+      startDescription.textContent = data.weather[0].description;
+      document
+        .querySelector(".startingPointDesc")
+        .appendChild(startDescription);
+      var startIcon = data.weather[0].icon;
+      var iconUrl = "http://openweathermap.org/img/w/" + startIcon + ".png";
+      document.querySelector(".startingIcon").src = iconUrl;
+      var startHumidity = document.createElement("p");
+      startHumidity.textContent = data.main.humidity + "%";
+      document
+        .querySelector(".startingPointHumidity")
+        .appendChild(startHumidity);
+      var startWind = document.createElement("p");
+      startWind.textContent = data.wind.speed + "mph";
+      document.querySelector(".startingPointWind").appendChild(startWind);
     });
 }
+
+function endingPointWeather() {
+  var url = `https://api.openweathermap.org/data/2.5/weather?q=${endingPoint.value}&units=imperial&appid=d60338ffc6ff91a104e3347936e9f739`;
+
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      var endName = document.createElement("h4");
+      endName.textContent = data.name;
+      document.querySelector(".endingPointCity").appendChild(endName);
+      var endTemp = document.createElement("p");
+      endTemp.textContent = data.main.temp + "°";
+      document.querySelector(".endingPointTemp").appendChild(endTemp);
+      var endDescription = document.createElement("p");
+      endDescription.textContent = data.weather[0].description;
+      document.querySelector(".endingPointDesc").appendChild(endDescription);
+      var endIcon = data.weather[0].icon;
+      var iconUrl = "http://openweathermap.org/img/w/" + endIcon + ".png";
+      document.querySelector(".endingIcon").src = iconUrl;
+      var endHumidity = document.createElement("p");
+      endHumidity.textContent = data.main.humidity + "%";
+      document.querySelector(".endingPointHumidity").appendChild(endHumidity);
+      var endWind = document.createElement("p");
+      endWind.textContent = data.wind.speed + "mph";
+      document.querySelector(".endingPointWind").appendChild(endWind);
+    });
+}
+
 //Blocks button from reloading page anc calls functions to occur
 submit.addEventListener("click", function (e) {
   e.preventDefault();
-  getApi();
+  startingPointWeather();
+  endingPointWeather();
   storeCities();
   storeStopsFactor();
   storeBudget();

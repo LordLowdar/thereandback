@@ -4,110 +4,156 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./toDoStyle.css" />
-    <link rel="stylesheet" href="modal.css" />
-    <link rel="stylesheet" href="displayshellstyle.css" />
+    <link href="http://fonts.cdnfonts.com/css/informal-roman" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="displayshellstylefullpage.css" />
+    <link rel="stylesheet" href="toDoStyle.css">
     <title>There and back again shell display</title>
   </head>
 
   <body id="whole-page-container">
-    <header id="page-title-box">
-      <h1>There and back again</h1>
+    <!--This is the start of the header block meant to hold the title of the page and its nav bar -->
+      <header id="page-title-container">
+        <div class= "title-box">
+          <p1>There </p1>
+          <p2>and</p2>
+          <p3>Back!</p3>
+      </div>
+     
+    <!--This is a part of the header dedicated to  the navigation bar of the site as well as the text block it displays when clicked on-->
       <nav id="navigation-box">
-        <a class="item" href="#"> Contact us </a>
-        <a href="#"> About the app</a>
-        <a href="#">About us</a>
-      </nav>
-    </header>
-
-    <section id="todo-list-container-box">
-      <h2>Pre-trip checklist</h2>
-      <div id="taskListContainer">
-        <!-- <div class="item"><p>box</p></div>
-        <div class="item"><p>box</p></div>
-        <div class="item"><p>box</p></div>
-        <div class="item"><p>box</p></div>
-        <div class="item"><p>box</p></div> -->
+          <div class= "nav-toggle-button" onclick = "toggleNav()">
+          <span class= "material-icons">reorder</span>
+          </div>
+          <div class= "nav-hideaway">
+            <div class="infoButton" id = "contact-us-button" onclick="showContactUs()"> Contact Us</div>
+            <div class="infoButton" id = "about-us-button" onclick= "showAboutUs()"> About Us</div>
+            <div class="infoButton" id = "about-app-button" onclick= "showAboutApp()"> About App</div>
+        </div>
+        </nav>
+      </header>
+    <!---->
+      
+      <!-- This section is designated to holding the title and contents of the to do list feature of our site-->
+      <div class = "todo-title">
+        <h2> To Do List</h2>
+        <div onmouseover = "showAboutTodo()" onmouseout="closeInfo()">...</div>
       </div>
-    </section>
+      <div id="taskListContainer"></div>
+      <!---->
+      
+      <main id="features-display-box">
+        
+        <div id="window-a" class="displayWindow">
+          <h3>window-a</h3>
+          <div class= "description-button">
+            <span class= "material-icons" onmouseover="showAboutUs()" onmouseout="closeInfo()">description</span>
+          </div>
+        </div>
+        
+        <div id="window-b" class="displayWindow" >
+          <h3>window-b</h3>
+        </div>
+        
+        <div id="window-c" class="displayWindow">
+          <button id="modalBtn" class="infoPull">Set off!</button>
+          <div id="infoModal" class="modal">
+            <div class="modalContent">
+              <div class="modalHeader">
+                <span id="closeBtn">&times;</span>
+                <h2>Where are we off to?</h2>
+              </div>
+              <div class="modalBody">
+                <form id="info">
+                  <label for="startingPoint">Where are you Starting From?</label><br />
+                  <input
+                    type="text"
+                    id="startingPoint"
+                    name="startingPoint"
+                    value="Bag End"
+                    /><br />
+                    <label for="endPoint">You'll Be Headed Where?</label><br />
+                    <input
+                    type="text"
+                    id="endingPoint"
+                    name="endingPoint"
+                    value="Mordor"
+                    /><br />
+                    <label for="stops">How Many Stops Are you Considering?</label>
+                    <select id="stops" name="stops">
+                      <option value="0">Not Sure</option>
+                      <option value="1">0</option>
+                    <option value="2">3</option>
+                    <option value="3">5</option>
+                    <option value="4">7</option>
+                  </select><br />
+                  <label for="startingDate">Leaving On:</label>
+                  <input type="date" id="startingDate" name="startingDate" />
+                  <label for="leaveDate">Heading Home On:</label>
+                  <input type="date" id="departingDate" name="departingDate" /><br />
+                  <label for="budget">How Much Do You Need to Fund This?</label><br />
+                  <input type="text" id="budget" name="budget" value="$0" /><br />
+                  <button type="submit" class="submitModal" id="submit">
+                    The First Step
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <main id="features-display-box">
-      <div id="window-a" class="displayWindow current" data-mode="active">
-        <h3>window-a</h3>
+      <div id="window-d" class="displayWindow">
+        <h3>calendar-view</h3>
       </div>
 
-      <div id="window-b" class="displayWindow passive" data-mode="passive">
-        <h3>window-b</h3>
-      </div>
-
-      <div id="window-c" class="displayWindow" data-mode="passive">
-        <h3>window-c</h3>
-      </div>
-
-      <div id="window-d" class="displayWindow" data-mode="passive">
-        <h3>window-d</h3>
-      </div>
-
-      <div id="window-e" class="displayWindow" data-mode="passive">
-        <h3>window-e</h3>
+      <div id="window-e" class="displayWindow">
+        <h3>Previews</h3>
       </div>
     </main>
-    <button id="modalBtn" class="infoPull">Set off!</button>
+  </div>
+</div>
+<div class="card">
+  <div class="currentWeather"></div>
+</div>
 
-    <div id="infoModal" class="modal">
-      <div class="modalContent">
-        <div class="modalHeader">
-          <span id="closeBtn">&times;</span>
-          <h2>Where are we off to?</h2>
-        </div>
-        <div class="modalBody">
-          <form id="info">
-            <label for="startingPoint">Where are you Starting From?</label
-            ><br />
-            <input
-              type="text"
-              id="startingPoint"
-              name="startingPoint"
-              value="Bag End"
-            /><br />
-            <label for="endPoint">Youll Be Headed Where?</label><br />
-            <input
-              type="text"
-              id="endingPoint"
-              name="endingPoint"
-              value="Mordor"
-            /><br />
-            <label for="stops">How Many Stops Are you Considering?</label>
-            <select id="stops" name="stops">
-              <option value="0">Not Sure</option>
-              <option value="1">0</option>
-              <option value="2">3</option>
-              <option value="3">5</option>
-              <option value="4">7</option></select
-            ><br />
-            <label for="startingDate">Leaving On:</label>
-            <input type="date" id="startingDate" name="startingDate" />
-            <label for="leaveDate">Heading Home On:</label>
-            <input type="date" id="departingDate" name="departingDate" /><br />
-            <label for="budget">How Much Do You Need to Fund This?</label><br />
-            <input type="text" id="budget" name="budget" value="$0" /><br />
-            <button type="submit" class="submitModal" id="submit">
-              The First Step
-            </button>
-          </form>
-        </div>
-        <div class="modalFooter">
-          <h3>Hobbit footer</h3>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="currentWeather"></div>
-    </div>
+<div class="infoWindow" id = "contact-us-display" onclick="closeInfo()">
+  <p> 1234@gmail.com or whatever</br>
+    (321)654-9871
+  </p>
+</div>
 
-    <script src="modal.js"></script>
-    <script type="text/javascript" src="displayshellscript.js"></script>
-    <script src="./toDoScript.js"></script>
-  </body>
+<div class="infoWindow" id = "about-us-display" onclick="closeInfo()">
+  <p> We are a group of five students taking a coding bootcamp course.
+  </p>
+</div>
+
+<div class="infoWindow" id = "about-app-display" onclick="closeInfo()">
+  <p> This app is intended to help you plan and organize a trip by offering  a space
+    where you can create a to-do list of things to get
+  </p>
+</div>
+
+<div class="infoWindow" id = "about-todo-display" onclick="closeInfo()">
+  <p> Use this tool to save tasks that need to be accomplished either before,
+    during or after your trip. You can mark the item as done but keep it visible
+    by checking it off, or you can get rid of it all together by closing its node.
+  </p>
+</div>
+
+<div class="infoWindow" id = "about-calendar-display" onclick="closeInfo()">
+  <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    In nam sed veritatis aspernatur exercitationem libero dolorum, 
+    molestiae ea similique hic.and some more shit.
+  </p>
+</div>
+
+
+
+<script src= "toDoScript.js"></script>
+<script src="modal.js"></script>
+<script src="displayshellscript.js"></script>
+
+</body>
 </html>
