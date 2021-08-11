@@ -36,7 +36,9 @@
 }
 #addListItem{
   height: 99%;
+  min-height: 90px;
   width: 50px;
+  margin-right: auto;
   flex-shrink: 0;
 }
 
@@ -85,4 +87,23 @@ border-color: yellow;
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(255, 91, 91);
+  }
+  #map{
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    overflow: visible;
+  }
+  #instructions {
+    position: absolute;
+    margin: 20px;
+    width: 25%;
+    top: 0;
+    bottom: 20%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    overflow-y: scroll;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    line-height: 2em;
   }

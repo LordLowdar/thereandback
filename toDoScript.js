@@ -9,7 +9,6 @@ checklistContainer.innerHTML =
 const newItemButton = document.getElementById('addListItem')
 
 var locallyStored = localStorage.getItem('toDoArray')
-console.log(locallyStored)
 if (locallyStored === null) {
     locallyStored = []
 } else {
@@ -62,8 +61,8 @@ for (let i = 0; i < itemAmount; i++) {
     checkListDate.classList.add('savedDate')
 
     var thisMoment = moment().format('L')
-        console.log(thisMoment)
-        var OtherMoment = moment(locallyStored[i].date).format('L')
+        if (!locallyStored[i.date] == undefined){
+            var OtherMoment = moment(locallyStored[i].date).format('L')
         console.log(OtherMoment)
 
         if(moment(OtherMoment).isSame(moment(thisMoment))){
@@ -75,6 +74,7 @@ for (let i = 0; i < itemAmount; i++) {
         }
         if(moment(OtherMoment).isAfter(moment(thisMoment))){
             checkListItem.classList.add('future')
+        }
         }
 
     removeButton.id = 'remove' + [i]
@@ -209,3 +209,8 @@ function saveAll() {
     var stringSave = JSON.stringify(locallyStored)
     localStorage.setItem('toDoArray', stringSave)
 }
+
+
+
+// MAP STUFF
+
