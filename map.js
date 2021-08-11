@@ -32,6 +32,13 @@ function getRoute(end) {
         var json = JSON.parse(req.response);
         var data = json.routes[0];
         console.log(data)
+        var instructions = document.getElementById('instructions');
+        var steps = data.legs[0].steps;
+        var tripInstructions = [];
+        for (var i = 0; i < steps.length; i++) {
+            tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
+            instructions.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + ' min 🚴 </span>' + tripInstructions;
+        }
         var route = data.geometry.coordinates;
         var geojson = {
             type: 'Feature',
@@ -123,41 +130,33 @@ map.on('click', function (e) {
                 coordinates: coords
             }
         }
-    ]
-};
-if (map.getLayer('end')) {
-    map.getSource('end').setData(end);
-} else {
-    map.addLayer({
-        id: 'end',
-        type: 'circle',
-        source: {
-            type: 'geojson',
-            data: {
-                type: 'FeatureCollection',
-                features: [{
-                    type: 'Feature',
-                    properties: {},
-                    geometry: {
-                        type: 'Point',
-                        coordinates: coords
-                    }
-                }]
+        ]
+    };
+    if (map.getLayer('end')) {
+        map.getSource('end').setData(end);
+    } else {
+        map.addLayer({
+            id: 'end',
+            type: 'circle',
+            source: {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: [{
+                        type: 'Feature',
+                        properties: {},
+                        geometry: {
+                            type: 'Point',
+                            coordinates: coords
+                        }
+                    }]
+                }
+            },
+            paint: {
+                'circle-radius': 10,
+                'circle-color': '#f30'
             }
-        },
-        paint: {
-            'circle-radius': 10,
-            'circle-color': '#f30'
-        }
-    });
-}
-getRoute(coords);
-
-var instructions = document.getElementById('instructions');
-var steps = data.legs[0].steps;
-
-var tripInstructions = [];
-for (var i = 0; i < steps.length; i++) {
-  tripInstructions.push('<br><li>' + steps[i].maneuver.instruction) + '</li>';
-  instructions.innerHTML = '<br><span class="duration">Trip duration: ' + Math.floor(data.duration / 60) + ' min 🚴 </span>' + tripInstructions;}
+        });
+    }
+    getRoute(coords);
 });
