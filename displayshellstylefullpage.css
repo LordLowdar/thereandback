@@ -3,9 +3,11 @@
 #whole-page-container
 {
     max-width: 1240px;
-    max-height: 1860px;
+    height: auto;
     background-color: burlywood;
     border: 5px solid gray;
+    display: block;
+    
 }
 
 /*Header Section of the site contains the Title of the page and the navigation bar*/
@@ -13,10 +15,12 @@
     {
         display: flex;
         justify-content: space-between;
-        height:186px; 
+        height:182px; 
         width: 100%;
         background: black;
         border-bottom: 10px dashed yellow;
+        transition: all 0.8s ease-in-out;
+
     }
 
     #page-title-container .title-box
@@ -25,7 +29,7 @@
         justify-content: space-evenly;
         color: whitesmoke;
         font-weight: bolder;
-        width: 620px;
+        width: 590px;
         font-family: 'Informal Roman', sans-serif;
         font-size: 60px;
         white-space: nowrap;
@@ -52,7 +56,7 @@
     #navigation-box
     {
         display: flex;
-        width: 496px;
+        width: 360px;
         flex-wrap: wrap;
         justify-content: flex-end;
         align-self: flex-end;
@@ -160,7 +164,7 @@
     
     #features-display-box .displayWindow
     {
-        
+        display: flex;
         border: 5px solid black;
     }
     
@@ -219,3 +223,4 @@
         height: auto;
         width: 25%;
     }
+    
