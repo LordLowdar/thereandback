@@ -1,4 +1,5 @@
 let toggleNavStatus = false;
+let descriptionOpen = false;
 
 let infoWindowOpen = false;
 let getInfoWindows = document.querySelectorAll(" .infoWindow")
@@ -7,9 +8,6 @@ let getInfoWindows = document.querySelectorAll(" .infoWindow")
 function toggleNav()
 {
   let getNavBar = document.querySelector(".nav-hideaway");
-
- 
-
   if(toggleNavStatus === false)
   {
     getNavBar.style.visibility  = "visible";
@@ -67,17 +65,18 @@ function closeInfo()
     }
       document.getElementById("about-app-display").style.visibility = "visible";
       infoWindowOpen = true;
-  
   }
 
   function showAboutTodo()
   {
-    if (infoWindowOpen === true)
-    {
-      closeInfo() ;
-    }
-      document.getElementById("about-todo-display").style.visibility = "visible";
-      infoWindowOpen = true;
+    document.querySelector(".todo-title-box").style.width = "980px";
+    document.querySelector("#about-todo-display").style.opacity ="1";
+  }
+
+  function hideAboutTodo()
+  {
+    document.querySelector(".todo-title-box").style.width = "200px";
+    document.querySelector("#about-todo-display").style.opacity ="0";
   }
 
   function showAboutCalendar()

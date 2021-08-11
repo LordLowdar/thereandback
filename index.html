@@ -9,7 +9,6 @@
 
     <link rel="stylesheet" href="modal.css" />
     <link rel="stylesheet" href="displayshellstylefullpage.css" />
-    <link rel= "stylesheet" href="displayshellstylehalfpage.css"/>
     <link rel="stylesheet" href="toDoStyle.css">
     <title>There and back again shell display</title>
   </head>
@@ -20,30 +19,45 @@
         <div class= "title-box">
           <p1>There </p1>
           <p2>and</p2>
-          <p3>Back!</p3>
+          <p3>Back.</p3>
       </div>
      
     <!--This is a part of the header dedicated to  the navigation bar of the site as well as the text block it displays when clicked on-->
       <nav id="navigation-box">
           <div class= "nav-toggle-button" onclick = "toggleNav()">
-          <span class= "material-icons">reorder</span>
+          <span class= "material-icons">more_horiz</span>
           </div>
           <div class= "nav-hideaway">
             <div class="infoButton" id = "contact-us-button" onclick="showContactUs()"> Contact Us</div>
             <div class="infoButton" id = "about-us-button" onclick= "showAboutUs()"> About Us</div>
             <div class="infoButton" id = "about-app-button" onclick= "showAboutApp()"> About App</div>
-        </div>
+          </div>
         </nav>
       </header>
     <!---->
-      
-      <!-- This section is designated to holding the title and contents of the to do list feature of our site-->
-      <div class = "todo-title">
-        <h2> To Do List</h2>
-        <div onmouseover = "showAboutTodo()" onmouseout="closeInfo()">...</div>
+    <!-- This section is designated to holding the title and contents of the to do list feature of our site-->
+      <div class= "todo-title-container">
+        <div class = "todo-title-box">
+          <div class = "todo-title">
+            <h2> To Do List</h2>
+            <div class= "description-button" onmouseover = "showAboutTodo()" onmouseout="hideAboutTodo()">...</div>
+          </div>
+           <div class="side-description" id = "about-todo-display">
+            <p> Use this tool to save tasks that need to be accomplished either before,
+              during or after your trip. </br>You can mark the item as done but keep it visible
+              by checking it off, or you can get rid of it all together by closing its node.</p>
+            </div>
+          </div>
+        </div>
       </div>
+     <!---->
       <div id="taskListContainer"></div>
-      <!---->
+
+      <div class = "features-title-box">
+        <div class= "features-title">
+          <h2>Check It Out</h2>
+        </div>
+      </div>
       
       <main id="features-display-box">
      
@@ -154,12 +168,6 @@
   </p>
 </div>
 
-<div class="infoWindow" id = "about-todo-display" onclick="closeInfo()">
-  <p> Use this tool to save tasks that need to be accomplished either before,
-    during or after your trip. You can mark the item as done but keep it visible
-    by checking it off, or you can get rid of it all together by closing its node.
-  </p>
-</div>
 
 <div class="infoWindow" id = "about-calendar-display" onclick="closeInfo()">
   <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 

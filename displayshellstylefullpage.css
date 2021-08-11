@@ -2,11 +2,13 @@
 
 #whole-page-container
 {
-    max-width: 1240px;
+    max-width: 1820px;
     height: auto;
-    background-color: burlywood;
+    background-color: whitesmoke;
     border: 5px solid gray;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
     
 }
 
@@ -14,11 +16,14 @@
     #page-title-container
     {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         height:182px; 
         width: 100%;
-        background: black;
-        border-bottom: 10px dashed yellow;
+        background-image: url(./sources/annie-spratt-maps-background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-bottom: 5px solid rgb(101, 147, 147);
         transition: all 0.8s ease-in-out;
 
     }
@@ -26,38 +31,22 @@
     #page-title-container .title-box
     {
         display: flex;
-        justify-content: space-evenly;
-        color: whitesmoke;
+        justify-content: space-around;
+        align-self: center;
+        color: black;
         font-weight: bolder;
         width: 590px;
-        font-family: 'Informal Roman', sans-serif;
-        font-size: 60px;
+        height: 65px;
+        font-size: 54px;
+        margin-top: 25px;
         white-space: nowrap;
-    }
-
-    .title-box p1
-    {
-        align-self: flex-start;
-        justify-self: flex-start;
-    }
-
-    .title-box p2
-    {
-        align-self: center;
-        justify-self: center;
-    }
-
-    .title-box p3
-    {
-        align-self: flex-end;
-        justify-self: flex-end;
     }
 
     #navigation-box
     {
         display: flex;
         width: 360px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: flex-end;
         align-self: flex-end;
         margin: 0px 15px 5px 0px;
@@ -72,6 +61,7 @@
         width: 25px;
         height: 20px;
         background-color: whitesmoke;
+        border-radius: 5px;
         cursor: pointer;
         order:1;
         z-index: 50;
@@ -110,44 +100,115 @@
 
     .nav-hideaway .infoButton:hover
     {
+        background-color: black;
+        border-radius: 3px;
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;;
         text-decoration: underline;
     }
 /**/
 
+.todo-title-container
+{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    background-image: url(./sources/grimur-grimsson-stripes-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 /*Todo list of the site contains the adjustable list and its title as seprate elements*/
+     .todo-title-box
+    {
+        display: flex;
+        align-items: center;
+        border-radius: 0px 25px 0px 0px;
+        height: 100%;
+        width: 200px;
+        background: black;
+        color: whitesmoke;
+        transition: all 0.5s ease-in-out;    
+    }
+
     .todo-title
     {
         display: flex;
+        padding-left: 25px;
+        font-size: 15px;
+        justify-content: center;
+        align-items:center;
+        white-space: nowrap;
+    }
+
+    .description-button
+    {
+        color: whitesmoke;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .side-description
+    {
+        opacity: 0;
+        line-height: 12px;
+        margin-left: 15px;
+        white-space: nowrap;
+        font-size: 12px;
+        transition: all 0.7s ease-in-out;
+
+    }
+    
+
+    
+    #taskListContainer
+    { 
+        background: gray;
+        width: 100%;
+    }
+    /**/
+    .features-title-box
+{
+    display: flex;
+    width: 100%;
+    background-image: url(./sources/grimur-grimsson-stripes-background.jpg);
+    transform:scaleX(-1);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*Todo list of the site contains the adjustable list and its title as seprate elements*/
+    .features-title
+    {
+        transform:scaleX(-1);
+        align-self: flex-start;
+        border-radius: 25px 0px 0px 0px;
+        display: flex;
         justify-content: center;
         align-items: center;
-        height: 62px;
-        width: 100%;
+        height: 30px;
+        width: 20%;
         background: black;
         color: whitesmoke;
-        font-family: 'Informal Roman', sans-serif;
-        font-size: 20px;
+        font-size: 15px;
         text-align: center;
         padding:10px 0px 10px 0px;
         margin: 0px;
         
     }
 
-    .todo-title div
+    .features-title .description-button
     {
         cursor: pointer;
         align-self: flex-end;
         margin-left: 15px;
     }
 
-    #taskListContainer
-    { 
-        border-top: 10px solid yellow;
-        background: gray;
-        width: 100%;
-    }
-    /**/
-    
+
+
+
     /*The feature display box is supposed to respond to changing in widths as for various sizes*/
     #features-display-box  
     {
@@ -181,6 +242,7 @@
 }
 
 #window-c
+
 {
         display:flex;
         align-content: center;
@@ -214,13 +276,3 @@
         border-radius: 5px;
         z-index: 75;
     }
-
-     #about-todo-display
-    {
-        font-size: 10px;
-        left: 45%;
-        top: 40%;
-        height: auto;
-        width: 25%;
-    }
-    
