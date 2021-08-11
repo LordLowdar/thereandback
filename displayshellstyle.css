@@ -22,7 +22,8 @@
 
  /*The container area for the checkbox area below the titlte*/
     #todo-list-container-box
-    {
+    {   display: flex;
+        flex-direction: column;
         height: 25vh;
         border: 2px solid grey;
     }

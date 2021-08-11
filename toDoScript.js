@@ -8,7 +8,6 @@ checklistContainer.innerHTML =
 // locally store amount of buttons as number
 const newItemButton = document.getElementById('addListItem')
 
-// var locallyStored = localStorage.getItem('storageArray')
 var locallyStored = localStorage.getItem('toDoArray')
 console.log(locallyStored)
 if (locallyStored === null) {
@@ -17,13 +16,10 @@ if (locallyStored === null) {
     var locallyStored = JSON.parse(locallyStored)
 }
 var itemAmount = localStorage.getItem('itemAmount')
-if(itemAmount == null){
+if (itemAmount == null) {
     itemAmount = 0
 }
 itemAmount = parseInt(itemAmount)
-console.log(itemAmount)
-console.log(locallyStored)
-
 
 
 
@@ -41,21 +37,45 @@ for (let i = 0; i < itemAmount; i++) {
     // add a class for styling
     checkListItem.classList.add('checkListItem')
     checkListItem.id = [i]
+
+    
     // create input for toDo items
     const checkListInput = document.createElement('input')
     checkListInput.classList.add('toDoInput')
     checkListInput.id = 'toDoInput' + [i]
     checkListInput.placeholder = "Enter your to-do items!"
-    checkListInput.value = locallyStored[i].input
     checkListInput.classList.add('savedInput')
     // create input for date
     const checkListDate = document.createElement('input')
     checkListDate.type = 'date'
     checkListDate.classList.add('toDoDate')
     checkListDate.id = 'toDoDate' + [i]
-    // checkListDate.placeholder = ""
-    checkListDate.value = locallyStored[i].date
+
+    if (locallyStored[i] === undefined) {
+        checkListInput.value = ''
+        checkListDate.value = ''
+    }
+    else {
+        checkListInput.value = locallyStored[i].input
+        checkListDate.value = locallyStored[i].date
+    }
     checkListDate.classList.add('savedDate')
+
+    var thisMoment = moment().format('L')
+        console.log(thisMoment)
+        var OtherMoment = moment(locallyStored[i].date).format('L')
+        console.log(OtherMoment)
+
+        if(moment(OtherMoment).isSame(moment(thisMoment))){
+            checkListItem.classList.add('present')
+            // console.log(inputHolder)
+        }
+        if(moment(OtherMoment).isBefore(moment(thisMoment))){
+            checkListItem.classList.add('past')
+        }
+        if(moment(OtherMoment).isAfter(moment(thisMoment))){
+            checkListItem.classList.add('future')
+        }
 
     removeButton.id = 'remove' + [i]
     removeButton.textContent = 'X'
@@ -73,6 +93,8 @@ checklistContainer.addEventListener('click', (event) => {
     const isButton = event.target.nodeName === 'BUTTON';
     // get id of target element
     var targetId = event.target.getAttribute('id')
+
+    var targetItem = document.getElementById(targetId).parentElement
     // test if element is button
     if (!isButton) {
         return;
@@ -83,7 +105,7 @@ checklistContainer.addEventListener('click', (event) => {
     }
     // else save/checkmark button
     else if (targetId === 'saveButton') {
-        saveAll()
+        saveAll(targetItem)
     }
     else if (targetId.includes('check')) {
         var targetItem = document.getElementById(targetId).parentElement
@@ -96,14 +118,13 @@ checklistContainer.addEventListener('click', (event) => {
         }
     }
     else if (targetId.includes('remove')) {
-        var targetItem = document.getElementById(targetId).parentElement
         var deleteNum = parseInt(targetItem.id)
         console.log(deleteNum)
         locallyStored.splice(deleteNum, 1)
         var stringSave = JSON.stringify(locallyStored)
         localStorage.setItem('toDoArray', stringSave)
         targetItem.remove()
-        itemAmount -=1
+        itemAmount -= 1
         localStorage.setItem('itemAmount', itemAmount)
     }
 })
@@ -147,9 +168,36 @@ function saveAll() {
     for (let i = 0; i < itemAmount; i++) {
         var dateHolder = document.getElementById('toDoDate' + [i])
         var inputHolder = document.getElementById('toDoInput' + [i])
+        currentElement = inputHolder.parentElement
+        console.log(currentElement)
         var saveItem = new Object()
         saveItem.input = inputHolder.value
+        if(inputHolder.value == null){
+            saveItem.input = ''
+        }
         saveItem.date = dateHolder.value
+        if (dateHolder.value == null){
+            saveItem.date = ''
+        }
+        var thisMoment = moment().format('L')
+        console.log(thisMoment)
+        var OtherMoment = moment(saveItem.date).format('L')
+        console.log(OtherMoment)
+
+        if(moment(OtherMoment).isSame(moment(thisMoment))){
+            currentElement.classList.add('present')
+            // console.log(inputHolder)
+        }
+        if(moment(OtherMoment).isBefore(moment(thisMoment))){
+            currentElement.classList.add('past')
+        }
+        if(moment(OtherMoment).isAfter(moment(thisMoment))){
+            currentElement.classList.add('future')
+        }
+
+
+
+
         locallyStored.splice(i, 1, saveItem)
         // locallyStored.splice(i, i, 'date : ' + dateHolder.value)
 
