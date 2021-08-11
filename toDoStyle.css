@@ -1,109 +1,83 @@
-
-#taskListContainer{
+#taskListContainer {
   display: flex;
   flex-direction: row-reverse;
-  overflow-x: scroll;
-  overflow-y:hidden;
-  white-space:nowrap;
+  overflow: auto;
+  white-space: nowrap;
   align-items: center;
 }
-.checkListItem{
-    height: 90%;
-    max-width: 145px;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-evenly;
-    padding: 2px;
-    margin: 2px;
-    border: 4px solid rgb(255, 176, 176);
-    border-radius: 10px;
+.toDoDate {
+  height: 30%;
 }
-.toDoDate{
-    height: 30%;
+.toDoInput {
+  height: 50%;
 }
-.toDoButton{
+.toDoButton {
+  width: 10%;
   height: 20%;
 }
-.removeButton{
-  height: 20%;
-}
-#saveButton{
-  height: 99%;
-  min-height: 90px;
+#saveButton {
+  height: 100px;
   width: 50px;
   margin-right: auto;
   flex-shrink: 0;
 }
-#addListItem{
-  height: 99%;
-  min-height: 90px;
+#addListItem {
+  height: 100px;
   width: 50px;
   margin-right: auto;
   flex-shrink: 0;
 }
 
-.past{
+.past {
+  order: -1;
+}
+.present {
   order: 0;
-  border-color: red
 }
-.present{
-order: +1;
-border-color: orange;
+.future {
+  order: 1;
 }
-.future{
-order: +2;
-border-color: yellow;
+.checked {
+  order: +2;
 }
-.checked{
-  order: +3;
-  border-color: green
-}
-.checked > input{
+.checked > input {
   text-decoration-line: line-through;
 }
-.unchecked{
+.unchecked {
   order: 0;
 }
 
+.checkListItem {
+  height: 90px;
+  width: 145px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 2px;
+  margin: 2px;
+  border: 4px solid rgb(255, 176, 176);
+  border-radius: 10px;
+}
 /* scrollbar styling */
 /* scrollbar  */
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #ffdddd;
-    border-radius: 10px;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(255, 176, 176);
-    border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(255, 91, 91);
-  }
-  #map{
-    width: 100%;
-    bottom: 0;
-    top: 0;
-    overflow: visible;
-  }
-  #instructions {
-    position: absolute;
-    margin: 20px;
-    width: 25%;
-    top: 0;
-    bottom: 20%;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    overflow-y: scroll;
-    font-family: sans-serif;
-    font-size: 0.8em;
-    line-height: 2em;
-  }
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffdddd;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 176, 176);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 91, 91);
+}
