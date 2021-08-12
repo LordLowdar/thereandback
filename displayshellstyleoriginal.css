@@ -37,9 +37,9 @@
         align-self: center;
         color: black;
         font-weight: bolder;
-        width: 590px;
+        width:auto;
         height: 65px;
-        font-size: 54px;
+        font-size: 80px;
         margin-top: 25px;
         white-space: nowrap;
     }

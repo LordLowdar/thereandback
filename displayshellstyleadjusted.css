@@ -1,0 +1,23 @@
+@media  only screen and (max-width: 820px) 
+{
+    #page-title-container .title-box
+    {
+        color:orangered;
+        font-size: 58px;
+        width: 70%;
+    } 
+
+}
+
+@media  only screen and (max-width: 630px) 
+{
+      #page-title-container .title-box
+      {
+          color:yellow;
+          font-size: 50px;
+          width: 100%;
+      } 
+      
+      
+}    
+
