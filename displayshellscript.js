@@ -69,7 +69,7 @@ function closeInfo()
 
   function showAboutTodo()
   {
-    document.querySelector(".todo-title-box").style.width = "980px";
+    document.querySelector(".todo-title-box").style.width = "870px";
     document.querySelector("#about-todo-display").style.opacity ="1";
   }
 
@@ -77,6 +77,18 @@ function closeInfo()
   {
     document.querySelector(".todo-title-box").style.width = "200px";
     document.querySelector("#about-todo-display").style.opacity ="0";
+  }
+
+  function showAboutFeatures()
+  {
+    document.querySelector(".features-title-box").style.width = "870px";
+    document.querySelector("#about-features-display").style.opacity ="1";
+  }
+
+  function hideAboutFeatures()
+  {
+    document.querySelector(".features-title-box").style.width = "200px";
+    document.querySelector("#about-features-display").style.opacity ="0";
   }
 
   function showAboutCalendar()
