@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="./toDoStyle.css">
+    <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="displayshellstyle.css" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
     <link href="http://fonts.cdnfonts.com/css/informal-roman" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -11,8 +17,11 @@
     <link rel="stylesheet" href="displayshellstylefullpage.css" />
     <link rel= "stylesheet" href="displayshellstylehalfpage.css"/>
     <link rel="stylesheet" href="toDoStyle.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+<link rel="stylesheet" href="mapStyle.css">
     <title>There and back again shell display</title>
-  </head>
+</head>
 
   <body id="whole-page-container">
     <!--This is the start of the header block meant to hold the title of the page and its nav bar -->
@@ -48,6 +57,9 @@
       <main id="features-display-box">
      
         <div id="window-a" class="displayWindow" >
+          <div id='map'></div>
+          <div id='instructions'></div>
+          <script src="./map.js"></script>
         </div>
         
         <div id="window-b" class="displayWindow">
@@ -176,3 +188,5 @@
 <script src= "toDoScript.js"></script>
 </body>
 </html>
+
+<!-- access token: pk.eyJ1IjoiY3J5c3RlcmFuIiwiYSI6ImNrczZzeGd2NjA0NWwyb3Blb2F5N242cXEifQ.GMDXDqZXp4_9RwxkhsxKog -->
