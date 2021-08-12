@@ -24,6 +24,7 @@
 #addListItem {
   height: 100px;
   width: 50px;
+  margin-right: auto;
   flex-shrink: 0;
 }
 
