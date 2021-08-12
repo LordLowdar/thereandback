@@ -30,7 +30,6 @@ function closeInfo()
   document.getElementById("contact-us-display").style.visibility = "collapse";
   document.getElementById("about-us-display").style.visibility = "collapse";
   document.getElementById("about-app-display").style.visibility = "collapse";
-  document.getElementById("about-todo-display").style.visibility = "collapse";
   document.getElementById("about-calendar-display").style.visibility = "collapse";
 
   infoWindowOpen = false;

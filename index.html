@@ -29,64 +29,131 @@
           <p1>There </p1>
           <p2>and</p2>
           <p3>Back.</p3>
-      </div>
+        </div>
      
-    <!--This is a part of the header dedicated to  the navigation bar of the site as well as the text block it displays when clicked on-->
-      <nav id="navigation-box">
-          <div class= "nav-toggle-button" onclick = "toggleNav()">
-          <span class= "material-icons">more_horiz</span>
-          </div>
-          <div class= "nav-hideaway">
-            <div class="infoButton" id = "contact-us-button" onclick="showContactUs()"> Contact Us</div>
-            <div class="infoButton" id = "about-us-button" onclick= "showAboutUs()"> About Us</div>
-            <div class="infoButton" id = "about-app-button" onclick= "showAboutApp()"> About App</div>
-          </div>
-        </nav>
-      </header>
+      <!--This is a part of the header dedicated to  the navigation bar of the site as well as the text block it displays when clicked on-->
+          <nav id="navigation-box">
+            <div class= "nav-toggle-button" onclick = "toggleNav()">
+            <span class= "material-icons">more_horiz</span>
+            </div>
+            <div class= "nav-hideaway">
+              <div class="infoButton" id = "contact-us-button" onclick="showContactUs()"> Contact Us</div>
+              <div class="infoButton" id = "about-us-button" onclick= "showAboutUs()"> About Us</div>
+              <div class="infoButton" id = "about-app-button" onclick= "showAboutApp()"> About App</div>
+            </div>
+          </nav>
+        </header>
+      <!---->
     <!---->
     <!-- This section is designated to holding the title and contents of the to do list feature of our site-->
-      <div class= "todo-title-container">
-        <div class = "todo-title-box">
-          <div class = "todo-title">
-            <h2> To Do List</h2>
-            <div class= "description-button" onmouseover = "showAboutTodo()" onmouseout="hideAboutTodo()">...</div>
-          </div>
-           <div class="side-description" id = "about-todo-display">
-            <p> Use this tool to save tasks that need to be accomplished either before,
-              during or after your trip. </br>You can mark the item as done but keep it visible
-              by checking it off, or you can get rid of it all together by closing its node.</p>
+        <div class= "todo-title-container">
+          <div class = "todo-title-box">
+            <div class = "todo-title">
+              <h2> To Do List</h2>
+              <div class= "description-button" onmouseover = "showAboutTodo()" onmouseout="hideAboutTodo()">...</div>
+            </div>
+            <div class="side-description" id = "about-todo-display">
+              <p> Use this tool to save tasks that need to be accomplished either before,
+                during or after your trip. </br>You can mark the item as done but keep it visible
+                by checking it off, or you can get rid of it all together by closing its node.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div id="taskListContainer"></div>
-     <!---->
-
-      <div class= "features-title-container">
-        <div class = "features-title-box">
-          <div class = "features-title">
-            <div class= "description-button" onmouseover = "showAboutFeatures()" onmouseout="hideAboutFeatures()">...</div>
-            <h2> Look Ahead</h2>
-          </div>
-           <div class="side-description" id = "about-features-display">
-            <p> Here are some usefull tools that should help give you a better idea  of
-              what's to come as you plan your trip.</br>Start by selecting the set off button 
-              and filling out the requested information.
-            </p>
+        <div id="taskListContainer"></div>
+    <!---->
+    <!--This is the start of the main features display and title bar-->
+      <!--This portion of the file holds the settup for the title bar of the main display-->
+        <div class= "features-title-container">
+          <div class = "features-title-box">
+            <div class = "features-title">
+              <div class= "description-button" onmouseover = "showAboutFeatures()" onmouseout="hideAboutFeatures()">...</div>
+              <h2> Look Ahead</h2>
+            </div>
+            <div class="side-description" id = "about-features-display">
+              <p> Here are some usefull tools that should help give you a better idea  of
+                what's to come as you plan your trip.</br>Start by selecting the set off button 
+                and filling out the requested information.
+              </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      
-      <main id="features-display-box">
+        <!---->
+        
+        <main id="features-display-box">
+          
+          <div id="start-button-window" class="displayWindow">
+            
+            <button id="modalBtn" class="infoPull">Set off!</button>
+            <div id="infoModal" class="modal">
+              <div class="modalContent">
+                <div class="modalHeader">
+                  <span id="closeBtn">&times;</span>
+                  <h2>Where are we off to?</h2>
+                </div>
+                <div class="modalBody">
+                  <form id="info">
+                    <label for="startingPoint">Where are you Starting From?</label><br />
+                    <input
+                      type="text"
+                      id="startingPoint"
+                      name="startingPoint"
+                      value="Bag End"
+                      /><br />
+                      <label for="endPoint">You'll Be Headed Where?</label><br />
+                      <input
+                      type="text"
+                      id="endingPoint"
+                      name="endingPoint"
+                      value="Mordor"
+                      /><br />
+                      <label for="stops">How Many Stops Are you Considering?</label>
+                      <select id="stops" name="stops">
+                        <option value="0">Not Sure</option>
+                        <option value="1">0</option>
+                      <option value="2">3</option>
+                      <option value="3">5</option>
+                      <option value="4">7</option>
+                    </select><br />
+                    <label for="startingDate">Leaving On:</label>
+                    <input type="date" id="startingDate" name="startingDate" />
+                    <label for="leaveDate">Heading Home On:</label>
+                    <input type="date" id="departingDate" name="departingDate" /><br />
+                    <label for="budget">How Much Do You Need to Fund This?</label><br />
+                    <input type="text" id="budget" name="budget" value="$0" /><br />
+                    <button type="submit" class="submitModal" id="submit">
+                      The First Step
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+          <div id= "vertical-separation-bar" class= "displayWindow">
+          </div>
+          
+          <div id= "horizontal-separation-bar" class= "displayWindow">
+          </div>
+       
+          <div id= "map-window-title" class ="displayWindow">
+            <h3>Map</h3>
+            <div>...</div>
+          </div>
      
-        <div id="window-a" class="displayWindow" >
+        <div id="map-window-display" class="displayWindow" >
           <div id='map'></div>
           <div id='instructions'></div>
           <script src="./map.js"></script>
         </div>
-        
-        <div id="window-b" class="displayWindow">
+
+        <div id= "weather-window-title" class ="displayWindow">
+          <h3>Weather</h3>
+          <div>...</div>
+        </div>
+          
+        <div id="weather-window-display" class="displayWindow">
           <div class="startingCard">
             <div class="startingWeather">
               <h4 class="startingPointCity"></h4>
@@ -97,82 +164,41 @@
               <div class="startingPointWind"></div>
             </div>
             </div>
-            
-            <div class="endingCard">
-              <div class="endingWeather">
-                <h4 class="endingPointCity"></h4>
-                <div class="endingPointTemp"></div>
-                <img src="" alt="" class="endingIcon" />
-                <div class="endingPointDesc"></div>
-                <div class="endingPointHumidity"></div>
-                <div class="endingPointWind"></div>
-              </div>
-              </div> 
-        </div>
-        
-        
-        <div id="window-c" class="displayWindow">
           
-          <button id="modalBtn" class="infoPull">Set off!</button>
-          <div id="infoModal" class="modal">
-            <div class="modalContent">
-              <div class="modalHeader">
-                <span id="closeBtn">&times;</span>
-                <h2>Where are we off to?</h2>
-              </div>
-              <div class="modalBody">
-                <form id="info">
-                  <label for="startingPoint">Where are you Starting From?</label><br />
-                  <input
-                    type="text"
-                    id="startingPoint"
-                    name="startingPoint"
-                    value="Bag End"
-                    /><br />
-                    <label for="endPoint">You'll Be Headed Where?</label><br />
-                    <input
-                    type="text"
-                    id="endingPoint"
-                    name="endingPoint"
-                    value="Mordor"
-                    /><br />
-                    <label for="stops">How Many Stops Are you Considering?</label>
-                    <select id="stops" name="stops">
-                      <option value="0">Not Sure</option>
-                      <option value="1">0</option>
-                    <option value="2">3</option>
-                    <option value="3">5</option>
-                    <option value="4">7</option>
-                  </select><br />
-                  <label for="startingDate">Leaving On:</label>
-                  <input type="date" id="startingDate" name="startingDate" />
-                  <label for="leaveDate">Heading Home On:</label>
-                  <input type="date" id="departingDate" name="departingDate" /><br />
-                  <label for="budget">How Much Do You Need to Fund This?</label><br />
-                  <input type="text" id="budget" name="budget" value="$0" /><br />
-                  <button type="submit" class="submitModal" id="submit">
-                    The First Step
-                  </button>
-                </form>
-              </div>
-            </div>
+              
+              <div class="endingCard">
+                <div class="endingWeather">
+                  <h4 class="endingPointCity"></h4>
+                  <div class="endingPointTemp"></div>
+                  <img src="" alt="" class="endingIcon" />
+                  <div class="endingPointDesc"></div>
+                  <div class="endingPointHumidity"></div>
+                  <div class="endingPointWind"></div>
+                </div>
+                </div> 
+       </div> 
+        
+        <div id= "calendar-link-window-container" class ="displayWindow">
+          <div id="calendar-link-title-container">
+            <h3>Calendar</h3>
+            <div>...</div>
           </div>
+          <p>Go To Calendar</p>
         </div>
+        
+        <div id= "external-link-window-container" class ="displayWindow">
+          <div id="external-link-title-container">
+            <h3>External</h3>
+            <div>...</div>
+          </div>
+          <p>Go To External</p>
+        </div>
+        
+      
+      </main>
+        
 
-      <div id="window-d" class="displayWindow">
-        <h3>calendar-view</h3>
-      </div>
-
-      <div id="window-e" class="displayWindow">
-        <h3>Previews</h3>
-      </div>
-    </main>
-  </div>
-</div>
-<div class="card">
-  <div class="currentWeather"></div>
-</div>
-
+<!--Here We placed a number of  divisions intended to hold-->
 <div class="infoWindow" id = "contact-us-display" onclick="closeInfo()">
   <p> 1234@gmail.com or whatever</br>
     (321)654-9871

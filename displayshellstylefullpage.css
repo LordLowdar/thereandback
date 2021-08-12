@@ -1,13 +1,15 @@
-
+:root
+{
+    --softblue: rgb(101, 147, 147);
+}
 
 #whole-page-container
 {
     max-width: 1820px;
-    height: auto;
+    height: 2730px;
     background-color: whitesmoke;
     border: 5px solid gray;
-    display: flex;
-    flex-direction: column;
+    display: block;
     justify-items: center;
     
 }
@@ -20,10 +22,10 @@
         justify-content: space-between;
         height:182px; 
         width: 100%;
-        background-image: url(./sources/annie-spratt-maps-background.jpg);
+        background-image: url("./sources/annie-spratt-maps-background.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-        border-bottom: 5px solid rgb(101, 147, 147);
+        border-bottom: 5px solid var(--softblue);
         transition: all 0.8s ease-in-out;
 
     }
@@ -114,7 +116,7 @@
         align-items: center;
         width: 100%;
         height: 45px;
-        background-image: url(./sources/grimur-grimsson-stripes-background.jpg);
+        background-image: url("./sources/grimur-grimsson-stripes-background.jpg");
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -144,9 +146,15 @@
 
     .description-button
     {
-        color: whitesmoke;
+        border-radius: 3px;
+        color:whitesmoke;
         cursor: pointer;
-        margin-left: 10px;
+        margin-left: 15px;
+    }
+
+    .description-button:hover
+    {
+        background-color: whitesmoke;
     }
 
     .side-description
@@ -162,11 +170,14 @@
         
     #taskListContainer
     { 
-        background: gray;
+        background-color: var(--softblue) ;
+        background-image: url("./sources/olga-thelavart-paper-background-blue.jpg");
+        background-size: cover;
         width: 100%;
     }
-    /**/
+/**/
 
+/*Features title bar portion of the style sheet made to mirror the todo title bar with values adjusted for the flip*/
     .features-title-container
     {
         display: flex;
@@ -205,9 +216,15 @@
 
     .features-title-box .description-button
     {
-        color: whitesmoke;
+        border-radius: 3px;
+        color:whitesmoke;
         cursor: pointer;
         margin-right: 15px;
+    }
+
+    .features-title-box .description-button:hover
+    {
+        background-color: whitesmoke;
     }
 
    .features-title-box .side-description
@@ -221,103 +238,137 @@
         transition: all 0.7s ease-in-out;
 
     }
-      
+/**/
 
-    /*.features-title-box previous version
-            {
-                display: flex;
-                width: 100%;
-                background-image: url(./sources/grimur-grimsson-stripes-background.jpg);
-                transform:scaleX(-1);
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-
-
-
-                .features-title
-                {
-                    transform:scaleX(-1);
-                    align-self: flex-start;
-                    border-radius: 25px 0px 0px 0px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 30px;
-                    width: 20%;
-                    background: black;
-                    color: whitesmoke;
-                    font-size: 15px;
-                    text-align: center;
-                    padding:10px 0px 10px 0px;
-                    margin: 0px;
-                    
-                }
-
-                .features-title .description-button
-                {
-                    cursor: pointer;
-                    align-self: flex-end;
-                    margin-left: 15px;
-                }*/
-
-
-
-
-    /*The feature display box is supposed to respond to changing in widths as for various sizes*/
+/*The feature display box is supposed to respond to changing in widths as for various sizes*/
     #features-display-box  
     {
-        width: 100%;
+        width: 99%;
         height: 620px;
         border: 5px solid black;
         display:grid;
-        grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        gap: 5px;
-        
-        
+        grid-template-columns: repeat(99, 1%);
+        grid-template-rows: repeat(99, 1% );  
     }
     
     #features-display-box .displayWindow
     {
         display: flex;
-        border: 5px solid black;
-    }
-    
-    #window-a
-    {
-        grid-column: 1 / 6;
-        grid-row: 1 /4;
-    }
-    
-    #window-b
-    {
-        grid-column: 6/ 9;
-    grid-row: 1 / 3;
-}
-
-#window-c
-
-{
-        display:flex;
-        align-content: center;
         justify-content: center;
-        grid-column: 6 / 7;
-        grid-row: 3 / 4;
+        overflow: hidden;
+        border: 1px solid var(--softblue);
+        border-radius: 10px;
     }
-    
-    #window-d
+
+    #start-button-window
     {
-        grid-column: 7/8;
-        grid-row: 3/4;
+        justify-content: center;
+        grid-column: 80/110;
+        grid-row: 1/15;
     }
-    
-    #window-e
+
+    #vertical-separation-bar
     {
-        grid-column: 8/9;
-        grid-row: 3/4;
+        background-color: black;
+        grid-column: 73/75;
+        grid-row: 1/100;
     }
-  
+
+    #horizontal-separation-bar
+    {
+        background-color: black;
+        grid-column: 75/100;
+        grid-row: 75/80
+    }
+
+    #map-window-title
+    {
+        align-items: center;
+        grid-column: 1/70;
+        grid-row: 1/15;
+    }
+
+    #map-window-display
+    {
+        grid-column: 1/73;
+        grid-row:15/100;
+    }
+
+    #weather-window-title
+    {
+        grid-column: 75/110;
+        grid-row: 15/25;
+    }
+
+    #weather-window-display
+    {
+        grid-column: 75/110;
+        grid-row:25/75;
+    }
+
+    #calendar-link-window-container
+    {
+        flex-direction: column;
+        align-items: center;
+        grid-column: 75/88;
+        grid-row: 80/100;
+    }
+
+    #calendar-link-title-container
+    {
+        display:flex;
+        align-items: center;
+    }
+
+    #external-link-window-container
+    {
+        flex-direction: column;
+        align-items:center;
+        grid-column: 88/110;
+        grid-row: 80/100;
+    }
+
+    #external-link-title-container
+    {
+        display:flex;
+        align-items: center;
+    }
+
+   /**/ 
+        #window-a
+        {
+            grid-column: 1 / 6;
+            grid-row: 1 /4;
+        }
+        
+        #window-b
+        {
+            grid-column: 6/ 9;
+        grid-row: 1 / 3;
+    }
+
+    #window-c
+
+    {
+            display:flex;
+            align-content: center;
+            justify-content: center;
+            grid-column: 6 / 7;
+            grid-row: 3 / 4;
+        }
+        
+        #window-d
+        {
+            grid-column: 7/8;
+            grid-row: 3/4;
+        }
+        
+        #window-e
+        {
+            grid-column: 8/9;
+            grid-row: 3/4;
+        }
+  /**/
     .infoWindow
     {
         visibility: collapse;
