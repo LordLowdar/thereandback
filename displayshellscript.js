@@ -100,4 +100,7 @@ function closeInfo()
       infoWindowOpen = true;
   }
 
+
+
+
 /**/

@@ -6,7 +6,7 @@
 #whole-page-container
 {
     max-width: 1820px;
-    height: 2730px;
+    height: auto;
     background-color: whitesmoke;
     border: 5px solid gray;
     display: block;
@@ -239,6 +239,26 @@
 
     }
 /**/
+#start-button-window-bar
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background-color: var(--softblue);
+    width: 100%;
+    height: 30px;
+}
+
+#start-box
+{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    overflow: hidden;
+    border-radius:  0 0  25px 25px;
+    background-color: whitesmoke;
+}
+
 
 /*The feature display box is supposed to respond to changing in widths as for various sizes*/
     #features-display-box  
@@ -248,7 +268,7 @@
         border: 5px solid black;
         display:grid;
         grid-template-columns: repeat(99, 1%);
-        grid-template-rows: repeat(99, 1% );  
+        grid-template-rows: repeat(99, 1% );
     }
     
     #features-display-box .displayWindow
@@ -256,85 +276,87 @@
         display: flex;
         justify-content: center;
         overflow: hidden;
-        border: 1px solid var(--softblue);
+        border: 3px solid black;
+        box-shadow: var(--softblue);
         border-radius: 10px;
     }
 
-    #start-button-window
-    {
-        justify-content: center;
-        grid-column: 80/110;
-        grid-row: 1/15;
-    }
 
     #vertical-separation-bar
     {
         background-color: black;
-        grid-column: 73/75;
-        grid-row: 1/100;
+        border-radius: 25px;
+        grid-column: 73/74;
+        grid-row: 2/100;
     }
 
     #horizontal-separation-bar
     {
         background-color: black;
-        grid-column: 75/100;
-        grid-row: 75/80
+        border-radius: 0 25px 25px 0 ;
+        grid-column: 75/101;
+        grid-row: 80/82
     }
 
     #map-window-title
     {
+        font-size: larger;
         align-items: center;
-        grid-column: 1/70;
-        grid-row: 1/15;
+        grid-column: 2/72;
+        grid-row: 2/10;
     }
 
     #map-window-display
     {
-        grid-column: 1/73;
-        grid-row:15/100;
+        grid-column: 2/72;
+        grid-row:11/100;
     }
 
     #weather-window-title
     {
-        grid-column: 75/110;
-        grid-row: 15/25;
+        font-size: larger;
+        align-items: center;
+        grid-column: 75/100;
+        grid-row: 2/10;
     }
 
     #weather-window-display
     {
-        grid-column: 75/110;
-        grid-row:25/75;
+        grid-column: 75/100;
+        grid-row:11/79;
     }
 
-    #calendar-link-window-container
+    #calendar-link-window
     {
-        flex-direction: column;
+        color:black;
+        text-decoration: none;
         align-items: center;
-        grid-column: 75/88;
-        grid-row: 80/100;
+        grid-column: 75/87;
+        grid-row: 84/100;
     }
 
-    #calendar-link-title-container
+    
+    #external-link-window
     {
-        display:flex;
-        align-items: center;
-    }
-
-    #external-link-window-container
-    {
-        flex-direction: column;
+        color:black;
+        text-decoration: none;
         align-items:center;
-        grid-column: 88/110;
-        grid-row: 80/100;
+        grid-column: 88/100;
+        grid-row: 84/100;
     }
 
-    #external-link-title-container
+   
+    
+    #calendar-link-window:hover,
+    #external-link-window:hover
     {
-        display:flex;
-        align-items: center;
+        color:whitesmoke;
+        background-color: black;
     }
 
-   /**/ 
+
+
+    /**/ 
         #window-a
         {
             grid-column: 1 / 6;
