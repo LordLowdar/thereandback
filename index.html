@@ -14,8 +14,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="modal.css" />
-    <link rel="stylesheet" href="displayshellstylefullpage.css" />
-    <link rel= "stylesheet" href="displayshellstylehalfpage.css"/>
+    <link rel="stylesheet" href="displayshellstyleoriginal.css" />
+    <link rel="stylesheet" href="displayshellstyleadjusted.css" />
     <link rel="stylesheet" href="toDoStyle.css">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
@@ -29,66 +29,61 @@
         <div class= "title-box">
           <p1>There </p1>
           <p2>and</p2>
-          <p3>Back!</p3>
-      </div>
-     
-    <!--This is a part of the header dedicated to  the navigation bar of the site as well as the text block it displays when clicked on-->
-      <nav id="navigation-box">
-          <div class= "nav-toggle-button" onclick = "toggleNav()">
-          <span class= "material-icons">reorder</span>
-          </div>
-          <div class= "nav-hideaway">
-            <div class="infoButton" id = "contact-us-button" onclick="showContactUs()"> Contact Us</div>
-            <div class="infoButton" id = "about-us-button" onclick= "showAboutUs()"> About Us</div>
-            <div class="infoButton" id = "about-app-button" onclick= "showAboutApp()"> About App</div>
+          <p3>Back.</p3>
         </div>
-        </nav>
-      </header>
-    <!---->
-      
-      <!-- This section is designated to holding the title and contents of the to do list feature of our site-->
-      <div class = "todo-title">
-        <h2> To Do List</h2>
-        <div onmouseover = "showAboutTodo()" onmouseout="closeInfo()">...</div>
-      </div>
-      <div id="taskListContainer"></div>
+     
+      <!--This is a part of the header dedicated to  the navigation bar of the site as well as the text block it displays when clicked on-->
+          <nav id="navigation-box">
+            <div class= "nav-toggle-button" onclick = "toggleNav()">
+            <span class= "material-icons">more_horiz</span>
+            </div>
+            <div class= "nav-hideaway">
+              <div class="infoButton" id = "contact-us-button" onclick="showContactUs()"> Contact Us</div>
+              <div class="infoButton" id = "about-us-button" onclick= "showAboutUs()"> About Us</div>
+              <div class="infoButton" id = "about-app-button" onclick= "showAboutApp()"> About App</div>
+            </div>
+          </nav>
+        </header>
       <!---->
-      
-      <main id="features-display-box">
-     
-        <div id="window-a" class="displayWindow" >
-          <div id='map'></div>
-          <div id='instructions'></div>
-          <script src="./map.js"></script>
-        </div>
-        
-        <div id="window-b" class="displayWindow">
-          <div class="startingCard">
-            <div class="startingWeather">
-              <h4 class="startingPointCity"></h4>
-              <div class="startingPointTemp"></div>
-              <img src="" alt="" class="startingIcon" />
-              <div class="startingPointDesc"></div>
-              <div class="startingPointHumidity"></div>
-              <div class="startingPointWind"></div>
+    <!---->
+    <!-- This section is designated to holding the title and contents of the to do list feature of our site-->
+        <div class= "todo-title-container">
+          <div class = "todo-title-box">
+            <div class = "todo-title">
+              <h2> To Do List</h2>
+              <div class= "description-button" onmouseover = "showAboutTodo()" onmouseout="hideAboutTodo()">...</div>
             </div>
-            </div>
-            
-            <div class="endingCard">
-              <div class="endingWeather">
-                <h4 class="endingPointCity"></h4>
-                <div class="endingPointTemp"></div>
-                <img src="" alt="" class="endingIcon" />
-                <div class="endingPointDesc"></div>
-                <div class="endingPointHumidity"></div>
-                <div class="endingPointWind"></div>
+            <div class="side-description" id = "about-todo-display">
+              <p> Use this tool to save tasks that need to be accomplished either before,
+                during or after your trip. </br>You can mark the item as done but keep it visible
+                by checking it off, or you can get rid of it all together by closing its node.</p>
               </div>
-              </div> 
+            </div>
+          </div>
         </div>
+        <div id="taskListContainer"></div>
+    <!---->
+    <!--This is the start of the main features display and title bar-->
+      <!--This portion of the file holds the settup for the title bar of the main display-->
+        <div class= "features-title-container">
+          <div class = "features-title-box">
+            <div class = "features-title">
+              <div class= "description-button" onmouseover = "showAboutFeatures()" onmouseout="hideAboutFeatures()">...</div>
+              <h2> Look Ahead</h2>
+            </div>
+            <div class="side-description" id = "about-features-display">
+              <p> Here are some usefull tools that should help give you a better idea  of
+                what's to come as you plan your trip.</br>Start by selecting the set off button 
+                and filling out the requested information.
+              </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
         
-        
-        <div id="window-c" class="displayWindow">
-          
+        <div id="start-button-window-bar" >
+          <div id = "start-box">
           <button id="modalBtn" class="infoPull">Set off!</button>
           <div id="infoModal" class="modal">
             <div class="modalContent">
@@ -134,21 +129,71 @@
             </div>
           </div>
         </div>
+        </div>
 
-      <div id="window-d" class="displayWindow">
-        <h3>calendar-view</h3>
-      </div>
+        <main id="features-display-box">
+          
+       
+          <div id= "vertical-separation-bar" class= "displayWindow">
+          </div>
+          
+          <div id= "horizontal-separation-bar" class= "displayWindow">
+          </div>
+       
+          <div id= "map-window-title" class ="displayWindow">
+            <h3>Map View</h3>
+          </div>
+     
+        <div id="map-window-display" class="displayWindow" >
+          <div id='map'></div>
+          <div id='instructions'></div>
+          <script src="./map.js"></script>
+        </div>
 
-      <div id="window-e" class="displayWindow">
-        <h3>Previews</h3>
-      </div>
-    </main>
-  </div>
-</div>
-<div class="card">
-  <div class="currentWeather"></div>
-</div>
+        <div id= "weather-window-title" class ="displayWindow">
+          <h3>Weather</h3>
+        </div>
+          
+        <div id="weather-window-display" class="displayWindow">
+          <div class="startingCard">
+            <div class="startingWeather">
+              <h4 class="startingPointCity"></h4>
+              <div class="startingPointTemp"></div>
+              <img src="" alt="" class="startingIcon" />
+              <div class="startingPointDesc"></div>
+              <div class="startingPointHumidity"></div>
+              <div class="startingPointWind"></div>
+            </div>
+            </div>
+          
+              
+              <div class="endingCard">
+                <div class="endingWeather">
+                  <h4 class="endingPointCity"></h4>
+                  <div class="endingPointTemp"></div>
+                  <img src="" alt="" class="endingIcon" />
+                  <div class="endingPointDesc"></div>
+                  <div class="endingPointHumidity"></div>
+                  <div class="endingPointWind"></div>
+                </div>
+                </div> 
+       </div> 
+        
 
+       <a href = "FullCalendar Implementation/todo.html" target = "blank"  id= "calendar-link-window" class ="displayWindow">
+        <h3>Calendar</h3>
+      </a>
+
+        
+      <a href = "FullCalendar Implementation/todo.html" target = "blank"  id= "external-link-window" class ="displayWindow">
+            <h3>External</h3>
+      </a>
+        
+      
+      </main>
+        
+
+<!--Here We placed a number of  divisions intended to hold-->
 <div class="infoWindow" id = "contact-us-display" onclick="closeInfo()">
   <p> 1234@gmail.com or whatever</br>
     (321)654-9871
@@ -166,12 +211,6 @@
   </p>
 </div>
 
-<div class="infoWindow" id = "about-todo-display" onclick="closeInfo()">
-  <p> Use this tool to save tasks that need to be accomplished either before,
-    during or after your trip. You can mark the item as done but keep it visible
-    by checking it off, or you can get rid of it all together by closing its node.
-  </p>
-</div>
 
 <div class="infoWindow" id = "about-calendar-display" onclick="closeInfo()">
   <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. 

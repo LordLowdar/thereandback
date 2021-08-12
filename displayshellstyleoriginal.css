@@ -1,0 +1,406 @@
+:root
+{
+    --softblue: rgb(101, 147, 147);
+}
+
+#whole-page-container
+{
+    max-width: 1820px;
+    height: auto;
+    background-color: whitesmoke;
+    border: 5px solid gray;
+    display: block;
+    justify-items: center;
+    
+}
+
+/*Header Section of the site contains the Title of the page and the navigation bar*/
+    #page-title-container
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height:182px; 
+        width: 100%;
+        background-image: url("./sources/annie-spratt-maps-background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-bottom: 5px solid var(--softblue);
+        transition: all 0.8s ease-in-out;
+
+    }
+
+    #page-title-container .title-box
+    {
+        display: flex;
+        justify-content: space-around;
+        align-self: center;
+        color: black;
+        font-weight: bolder;
+        width:auto;
+        height: 65px;
+        font-size: 80px;
+        margin-top: 25px;
+        white-space: nowrap;
+    }
+
+    #navigation-box
+    {
+        display: flex;
+        width: 360px;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-self: flex-end;
+        margin: 0px 15px 5px 0px;
+    }
+
+    .nav-toggle-button
+    {
+        display: flex;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 20px;
+        background-color: whitesmoke;
+        border-radius: 5px;
+        cursor: pointer;
+        order:1;
+        z-index: 50;
+    }
+  
+    .nav-toggle-button:hover
+    {
+        opacity: 0.5;
+    }
+
+    .nav-hideaway
+    {
+        display: flex;
+        justify-content: space-between;
+        width: 1%;
+        opacity:0;
+        visibility: collapse;
+        transition: all 0.5s ease-in-out;
+         white-space: nowrap;
+         padding-right: 10px;
+    }
+
+    .nav-hideaway .infoButton
+    {
+        color:whitesmoke;
+        display: block;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: 100%;
+        cursor: pointer;
+        padding: 0  5px;
+        
+    }
+
+    .nav-hideaway .infoButton:hover
+    {
+        background-color: black;
+        border-radius: 3px;
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;;
+        text-decoration: underline;
+    }
+/**/
+
+/*Todo list of the site contains the adjustable list and its title as seprate elements*/
+    .todo-title-container
+    {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 45px;
+        background-image: url("./sources/grimur-grimsson-stripes-background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+     .todo-title-box
+    {
+        display: flex;
+        align-items: center;
+        border-radius: 0px 25px 0px 0px;
+        height: 100%;
+        width: 200px;
+        background: black;
+        color: whitesmoke;
+        transition: all 0.5s ease-in-out;    
+    }
+
+    .todo-title
+    {
+        display: flex;
+        padding-left: 25px;
+        font-size: 15px;
+        justify-content: center;
+        align-items:center;
+        white-space: nowrap;
+    }
+
+    .description-button
+    {
+        border-radius: 3px;
+        color:whitesmoke;
+        cursor: pointer;
+        margin-left: 15px;
+    }
+
+    .description-button:hover
+    {
+        background-color: whitesmoke;
+    }
+
+    .side-description
+    {
+        opacity: 0;
+        line-height: 12px;
+        margin-left: 15px;
+        white-space: nowrap;
+        font-size: 12px;
+        transition: all 0.7s ease-in-out;
+
+    }
+        
+    #taskListContainer
+    { 
+        background-color: var(--softblue) ;
+        background-image: url("./sources/olga-thelavart-paper-background-blue.jpg");
+        background-size: cover;
+        width: 100%;
+    }
+/**/
+
+/*Features title bar portion of the style sheet made to mirror the todo title bar with values adjusted for the flip*/
+    .features-title-container
+    {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 45px;
+        background-image: url(./sources/grimur-grimsson-stripes-background.jpg);
+        transform: scaleX(-1);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+     .features-title-box
+    {
+        display: flex;
+        align-items: center;
+        border-radius: 0px 25px 0px 0px;
+        height: 100%;
+        width: 200px;
+        background: black;
+        color: whitesmoke;
+        transition: all 0.5s ease-in-out;    
+    }
+
+    .features-title
+    {
+        transform: scaleX(-1);
+        display: flex;
+        padding-right: 25px;
+        font-size: 15px;
+        justify-content: center;
+        align-items:center;
+        white-space: nowrap;
+    }
+
+    .features-title-box .description-button
+    {
+        border-radius: 3px;
+        color:whitesmoke;
+        cursor: pointer;
+        margin-right: 15px;
+    }
+
+    .features-title-box .description-button:hover
+    {
+        background-color: whitesmoke;
+    }
+
+   .features-title-box .side-description
+    {
+        transform: scaleX(-1);
+        opacity: 0;
+        line-height: 12px;
+        margin-left: 15px;
+        white-space: nowrap;
+        font-size: 12px;
+        transition: all 0.7s ease-in-out;
+
+    }
+/**/
+#start-button-window-bar
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background-color: var(--softblue);
+    width: 100%;
+    height: 30px;
+}
+
+#start-box
+{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    overflow: hidden;
+    border-radius:  0 0  25px 25px;
+    background-color: whitesmoke;
+}
+
+
+/*The feature display box is supposed to respond to changing in widths as for various sizes*/
+    #features-display-box  
+    {
+        width: 99%;
+        height: 620px;
+        border: 5px solid black;
+        display:grid;
+        grid-template-columns: repeat(99, 1%);
+        grid-template-rows: repeat(99, 1% );
+    }
+    
+    #features-display-box .displayWindow
+    {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        border: 3px solid black;
+        box-shadow: var(--softblue);
+        border-radius: 10px;
+    }
+
+
+    #vertical-separation-bar
+    {
+        background-color: black;
+        border-radius: 25px;
+        grid-column: 73/74;
+        grid-row: 2/100;
+    }
+
+    #horizontal-separation-bar
+    {
+        background-color: black;
+        border-radius: 0 25px 25px 0 ;
+        grid-column: 75/101;
+        grid-row: 80/82
+    }
+
+    #map-window-title
+    {
+        font-size: larger;
+        align-items: center;
+        grid-column: 2/72;
+        grid-row: 2/10;
+    }
+
+    #map-window-display
+    {
+        grid-column: 2/72;
+        grid-row:11/100;
+    }
+
+    #weather-window-title
+    {
+        font-size: larger;
+        align-items: center;
+        grid-column: 75/100;
+        grid-row: 2/10;
+    }
+
+    #weather-window-display
+    {
+        grid-column: 75/100;
+        grid-row:11/79;
+    }
+
+    #calendar-link-window
+    {
+        color:black;
+        text-decoration: none;
+        align-items: center;
+        grid-column: 75/87;
+        grid-row: 84/100;
+    }
+
+    
+    #external-link-window
+    {
+        color:black;
+        text-decoration: none;
+        align-items:center;
+        grid-column: 88/100;
+        grid-row: 84/100;
+    }
+
+   
+    
+    #calendar-link-window:hover,
+    #external-link-window:hover
+    {
+        color:whitesmoke;
+        background-color: black;
+    }
+
+
+
+    /**/ 
+        #window-a
+        {
+            grid-column: 1 / 6;
+            grid-row: 1 /4;
+        }
+        
+        #window-b
+        {
+            grid-column: 6/ 9;
+        grid-row: 1 / 3;
+    }
+
+    #window-c
+
+    {
+            display:flex;
+            align-content: center;
+            justify-content: center;
+            grid-column: 6 / 7;
+            grid-row: 3 / 4;
+        }
+        
+        #window-d
+        {
+            grid-column: 7/8;
+            grid-row: 3/4;
+        }
+        
+        #window-e
+        {
+            grid-column: 8/9;
+            grid-row: 3/4;
+        }
+  /**/
+    .infoWindow
+    {
+        visibility: collapse;
+        position: fixed;
+        left: 35%;
+        top: 30%;
+        height: 40%;
+        width: 30%;
+        padding: 10px 20px;
+        background-color: cornsilk;
+        border-radius: 5px;
+        z-index: 75;
+    }
