@@ -6,8 +6,8 @@ var map = new mapboxgl.Map({
     zoom: 12
 });
 // set the bounds of the map
-var bounds = [[-123.069003, 45.395273], [-122.303707, 45.612333]];
-map.setMaxBounds(bounds);
+// var bounds = [[-123.069003, 45.395273], [-122.303707, 45.612333]];
+// map.setMaxBounds(bounds);
 
 // initialize the map canvas to interact with later
 var canvas = map.getCanvasContainer();
@@ -15,15 +15,38 @@ var canvas = map.getCanvasContainer();
 // an arbitrary start will always be the same
 // only the end or destination will change
 var start = [-122.662323, 45.523751];
-
+var end = [-122.662323, 45.523751]
 // this is where the code for the next step will go
 // create a function to make a directions request
 function getRoute(end) {
     // make a directions request using cycling profile
     // an arbitrary start will always be the same
     // only the end or destination will change
-    var start = [-122.662323, 45.523751];
-    var url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
+    var start = localStorage.getItem('startCoords')
+    if (start == undefined){
+        fetchStart()
+        var x = localStorage.getItem('startCoords')
+        start = JSON.parse(x)
+        console.log(start)
+
+    } else{
+        var x = localStorage.getItem('startCoords')
+        start = JSON.parse(x)
+        console.log(start)
+    }
+    
+    var end = localStorage.getItem('endCoords')
+    if(end == undefined){
+        fetchEnd()
+        var x = localStorage.getItem('endCoords')
+        end = JSON.parse(x)
+        console.log(end)
+    } else{
+        var x = localStorage.getItem('endCoords')
+        end = JSON.parse(x)
+        console.log(end)
+    }
+    var url = 'https://api.mapbox.com/directions/v5/mapbox/driving/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
 
     // make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
     var req = new XMLHttpRequest();
@@ -114,49 +137,44 @@ map.on('load', function () {
     // this is where the code from the next step will go
     // get the sidebar and add the instructions
 });
-map.on('click', function (e) {
-    var coordsObj = e.lngLat;
-    canvas.style.cursor = '';
-    var coords = Object.keys(coordsObj).map(function (key) {
-        return coordsObj[key];
-    });
-    var end = {
-        type: 'FeatureCollection',
-        features: [{
-            type: 'Feature',
-            properties: {},
-            geometry: {
-                type: 'Point',
-                coordinates: coords
-            }
+function fetchStart() {
+    var cityString = localStorage.getItem('startingCity')
+    console.log(cityString)
+    city = encodeURIComponent(cityString)
+    var url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + city + '.json?access_token=pk.eyJ1IjoiY3J5c3RlcmFuIiwiYSI6ImNrczZzeGd2NjA0NWwyb3Blb2F5N242cXEifQ.GMDXDqZXp4_9RwxkhsxKog'
+    console.log(url)
+    fetch(url)
+        .then(response => response.json())
+        .then(data =>{ 
+            console.log(data)
+            startCoords(data)
         }
-        ]
-    };
-    if (map.getLayer('end')) {
-        map.getSource('end').setData(end);
-    } else {
-        map.addLayer({
-            id: 'end',
-            type: 'circle',
-            source: {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: [{
-                        type: 'Feature',
-                        properties: {},
-                        geometry: {
-                            type: 'Point',
-                            coordinates: coords
-                        }
-                    }]
-                }
-            },
-            paint: {
-                'circle-radius': 10,
-                'circle-color': '#f30'
-            }
-        });
-    }
-    getRoute(coords);
-});
+        );
+}
+
+function startCoords(data){
+    var startCoords = data.features[0].center
+    localStorage.setItem('startCoords', JSON.stringify(startCoords))
+}
+
+function fetchEnd() {
+    var cityString = localStorage.getItem('EndingCity')
+    console.log(cityString)
+    city = encodeURIComponent(cityString)
+    var url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + city + '.json?access_token=pk.eyJ1IjoiY3J5c3RlcmFuIiwiYSI6ImNrczZzeGd2NjA0NWwyb3Blb2F5N242cXEifQ.GMDXDqZXp4_9RwxkhsxKog'
+    console.log(url)
+    fetch(url)
+        .then(response => response.json())
+        .then(data =>{ 
+            console.log(data)
+            endCoords(data)
+        }
+        );
+}
+
+function endCoords(data){
+    var endCoords = data.features[0].center
+    localStorage.setItem('endCoords', JSON.stringify(endCoords))
+}
+fetchStart()
+fetchEnd()
