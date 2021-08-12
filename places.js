@@ -1,20 +1,8 @@
-//var submit = document.getElementById('submit')
-// submit.addEventListener('click', getcity)
-// function getcity(){
 
-// var cityname = localStorage.getItem("EndingCity")
-// console.log(cityname)
-//getCity(endName)
-//endName (madrid)
-//function getCity(){
-   // endName = localStorage.getItem('EndingCity')
- //   console.log(data)
-//function endName(){
+function getEnd(){  
+    var city = localStorage.getItem('EndingCity')
 
-//.addEventListener("click")
-//form.addEventListener('submit',
-//function(){ 
-fetch("https://opentripmap-places-v1.p.rapidapi.com/en/places/geoname?name=london", {
+fetch(`https://opentripmap-places-v1.p.rapidapi.com/en/places/geoname?name=${city}`, {
  	    "method": "GET",
  	    "headers": {
  		    "x-rapidapi-key": "81ac340436msh24215b45d49edcfp15f7e3jsn08c006be0de1",
@@ -28,8 +16,6 @@ fetch("https://opentripmap-places-v1.p.rapidapi.com/en/places/geoname?name=londo
         console.log(data.lat, data.lon);
         now1 (data.lat, data.lon)
     })
-//})// from function
-//}
         //below function to use lat and lon
 function now1 (lat,lon){
 fetch(`https://opentripmap-places-v1.p.rapidapi.com/en/places/radius?lat=${lat}&lon=${lon}&radius=16000&limit=10`, {
@@ -88,13 +74,6 @@ fetch(`https://opentripmap-places-v1.p.rapidapi.com/en/places/radius?lat=${lat}&
                         <p1>${data.wikipedia_extracts.html}</p1>`
 
                     }
-                    // Below is to add No Description if no wikidata but messes up website
-                   // display.innerHTML += data.wikipedia_extracts
-                   //     ? data.wikipedia_extracts.html
-                   //     : data.info
-                   //         ?data.info.descr
-                  //          :"No Description";
-
                     display.innerHTML += `<p><a target="_blank" href="${data.otm}">
                     See more
                     </a></p>`;
@@ -108,7 +87,7 @@ fetch(`https://opentripmap-places-v1.p.rapidapi.com/en/places/radius?lat=${lat}&
     })	
 }
 
+}
 
-
-
+getEnd()
 
