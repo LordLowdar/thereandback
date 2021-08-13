@@ -1,5 +1,5 @@
 .tables{
-    background-color: darkolivegreen;
+    background-color: lightcoral;
     border-radius: 15px;
     padding: 1em;
       font-family: Arial, Helvetica, sans-serif;
@@ -8,10 +8,11 @@
       align-items: center; 
     margin-left:auto;
     margin-right:auto;
+    border: 5px solid black;
   }
   
   .display{
-    background-color: darkolivegreen;
+    background-color: lightcoral;
     margin-left:auto;
     margin-right:auto;
     display:block;
@@ -25,7 +26,7 @@
     font-size:25px;
   }
   th,td {
-    border-bottom:1px solid darkgreen;
+    border-bottom:1px solid grey;
   
   }
   td:hover {opacity: 0.5;}
@@ -33,17 +34,53 @@
     margin-left:auto;
     margin-right:auto;
     display:block;
-    background-color: darkolivegreen;
+    background-color: lightcoral;
     border-radius: 15px;
     padding: 1em;
+    border: 5px solid black;
   }
   #goBack, #endPage {
-    background-color: forestgreen;
+    background-color: lightcoral;
   
   }
   .poibtn {
-    background-color: forestgreen;
+    background-color: darkolivegreen;
   }
   body {
-    background-color: burlywood;
+    background-color: whitesmoke;
+    border: 5px solid gray;
   }
+  #page-title-container
+  {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height:182px; 
+      width: 100%;
+      background-image: url("./sources/annie-spratt-maps-background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-bottom: 5px solid var(--softblue);
+      transition: all 0.8s ease-in-out;
+
+  }
+
+  #page-title-container .title-box
+  {
+      display: flex;
+      justify-content: space-around;
+      align-self: center;
+      color: black;
+      font-weight: bolder;
+      width:auto;
+      height: 65px;
+      font-size: 80px;
+      margin-top: 25px;
+      white-space: nowrap;
+  }
+.column {
+  width: 50%;
+}
+.row {
+  display:flex;
+}
