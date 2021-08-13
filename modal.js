@@ -9,8 +9,6 @@ var closeBtn = document.getElementById("closeBtn");
 modalBtn.addEventListener("click", openModal);
 //Listen for close click
 closeBtn.addEventListener("click", closeModal);
-//Listen for outside click
-// window.addEventListener("click", clickOutside);
 
 //Function to open modal
 function openModal() {
@@ -20,12 +18,6 @@ function openModal() {
 function closeModal() {
   modal.style.display = "none";
 }
-//Function if a click is happening outside of the modal
-// function clickOutside(e) {
-//   console.log("outside");
-//   if (e.target == modal) {
-//     modal.style.display = "none";
-//   }
 
 var starting = document.getElementById("submit");
 var form = document.getElementById("info");
