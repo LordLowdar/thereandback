@@ -9,14 +9,16 @@ body {
 }
 
 .infoPull {
-  background-color: darkolivegreen;
-  padding: 1em 2em;
+  background-color: whitesmoke;
+  width: 100%;
+  font-weight: bolder;
+  font-size: larger;
   color: black;
   border: 0;
 }
 
 .infoPull:hover {
-  background: forestgreen;
+  text-decoration: underline;
 }
 
 .modal {
@@ -35,7 +37,7 @@ body {
   background-color: grey;
   margin: 20% auto;
   /* padding: 20px; */
-  width: 30%;
+  width: 45%;
   box-shadow: 0 5px 8px 0 rgba(165, 252, 52, 0.2),
     0 7px 20px 0 rgba(165, 252, 52, 0.15);
   animation-name: modalOpen;
@@ -77,10 +79,14 @@ body {
 
 .startingCard,
 .endingCard {
-  background-color: darkolivegreen;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  background-color: lightcoral;
   margin: 5%;
   border-radius: 15px;
   padding: 1em;
+
 }
 
 @keyframes modalOpen {

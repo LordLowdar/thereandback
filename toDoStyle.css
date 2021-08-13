@@ -1,82 +1,88 @@
-#taskListContainer {
+#taskListContainer{
   display: flex;
   flex-direction: row-reverse;
-  overflow: auto;
-  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y:hidden;
+  white-space:nowrap;
   align-items: center;
 }
-.toDoDate {
-  height: 30%;
+.checkListItem{
+    height: 90%;
+    max-width: 145px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+    padding: 2px;
+    margin: 2px;
+    border: 4px solid rgb(255, 176, 176);
+    border-radius: 10px;
 }
-.toDoInput {
-  height: 50%;
+.toDoDate{
+    height: 30%;
 }
-.toDoButton {
-  width: 10%;
+.toDoButton{
   height: 20%;
 }
-#saveButton {
-  height: 100px;
+.removeButton{
+  height: 20%;
+}
+#saveButton{
+  height: 99%;
+  min-height: 90px;
   width: 50px;
   margin-right: auto;
   flex-shrink: 0;
 }
-#addListItem {
-  height: 100px;
+#addListItem{
+  height: 99%;
+  min-height: 90px;
   width: 50px;
   flex-shrink: 0;
 }
 
-.past {
-  order: -1;
-}
-.present {
+.past{
   order: 0;
+  border-color: red
 }
-.future {
-  order: 1;
+.present{
+order: +1;
+border-color: orange;
 }
-.checked {
-  order: +2;
+.future{
+order: +2;
+border-color: yellow;
 }
-.checked > input {
+.checked{
+  order: +3;
+  border-color: green
+}
+.checked > input{
   text-decoration-line: line-through;
 }
-.unchecked {
+.unchecked{
   order: 0;
 }
 
-.checkListItem {
-  height: 90px;
-  width: 145px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  padding: 2px;
-  margin: 2px;
-  border: 4px solid rgb(255, 176, 176);
-  border-radius: 10px;
-}
 /* scrollbar styling */
 /* scrollbar  */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #ffdddd;
-  border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(255, 176, 176);
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(255, 91, 91);
-}
+    width: 10px;
+    height: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ffdddd;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(255, 176, 176);
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(255, 91, 91);
+  }
