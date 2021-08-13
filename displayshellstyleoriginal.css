@@ -35,13 +35,20 @@
         display: flex;
         justify-content: space-around;
         align-self: center;
+        align-items: center;
         color: black;
         font-weight: bolder;
         width:auto;
         height: 65px;
-        font-size: 80px;
-        margin-top: 25px;
+        margin-top: 30px;
         white-space: nowrap;
+    }
+    #page-title-container .title-box h1
+    { 
+        font-size: 100px;
+        font-weight: bold;
+        padding: 30px;
+        transition: all 0.3s ease-in-out;
     }
 
     #navigation-box
@@ -164,7 +171,7 @@
         margin-left: 15px;
         white-space: nowrap;
         font-size: 12px;
-        transition: all 0.7s ease-in-out;
+        transition: all 0.3s ease-out;
 
     }
         
